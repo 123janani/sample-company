@@ -25,8 +25,8 @@ PUT /api/v1/dep/<depID>: update a department
 
 Project Build
 
-  $ node index.js
+    $ node index.js
   
 NPM node modules
 
-  $ npm install
+    $ npm install
