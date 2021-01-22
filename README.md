@@ -22,3 +22,4 @@ POST /api/v1/dep : create a new department
 DELETE /api/v1/dep/<depID>: delete a department
   
 PUT /api/v1/dep/<depID>: update a department 
+
