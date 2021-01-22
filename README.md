@@ -2,7 +2,7 @@
 
 API End Points
 
-############User
+User
 
 `GET`   /api/v1/user: will give all users 
 
@@ -16,7 +16,7 @@ API End Points
   
 `PUT`   /api/v1/user/<userID>: update a user 
   
-  ############Department
+Department
 
 `GET`   /api/v1/dep: will give all departments 
 
