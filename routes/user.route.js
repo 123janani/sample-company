@@ -5,8 +5,8 @@ const userController = require('../controller/user.controller');
 // Retrieve all departments
 router.get('/',userController.getAllUsers);
 router.get('/:id',userController.getUserById);
-//get department data by user
-router.get('/:id/dep',userController.getDepartmentByUser);
+//get user data by department
+router.get('/dep/:depId', userController.getUsersInDepartment);
 
 //add new user
 router.post('/',userController.addNewUser);

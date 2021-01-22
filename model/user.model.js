@@ -2,17 +2,17 @@
 var db = require('../config');
 
 //user object create
-var user = function(user1){
-    this.firstname = user1.firstname;
-    this.lastname = user1.lastname;
-    this.userId = user1.userId;
-    this.departmentName = user1.departmentName;
-    this.departmentId   = user1.departmentId;
-    this.phone = user1.phone;
-    this.email = user1.email;
-    this.address = user1.address;
-    this.dob = user1.dob;
-    this.age = user1.age;
+var user = function(dbUser){
+    this.firstname = dbUser.firstname;
+    this.lastname = dbUser.lastname;
+    this.userId = dbUser.userId;
+    this.departmentName = dbUser.departmentName;
+    this.departmentId   = dbUser.departmentId;
+    this.phone = dbUser.phone;
+    this.email = dbUser.email;
+    this.address = dbUser.address;
+    this.dob = dbUser.dob;
+    this.age = dbUser.age;
 };
 
 //get all
@@ -34,7 +34,7 @@ user.getAllUsers = function () {
 //get by id
 user.getUserById = function (id) {
     return new Promise(function (resolve, reject) {
-    db.query("Select * from user where userId = ? ", id, function (err, res) {
+    db.query("Select * from user where userId =? ", id, function (err, res) {
         if(err) {
             console.log("error: ", err);
             reject(err, 'error');
@@ -47,18 +47,15 @@ user.getUserById = function (id) {
 };
 
 //get by dep by user
-user.getDepartmentByUser = function (id) {
-    console.log('user get dep data');
+user.getUsersInDepartment = function (id) {
     return new Promise(function (resolve, reject) {
-        console.log('user get dep data');
-        db.query("SELECT user.firstname,user.departmentId, user.departmentName" +
-            " FROM user where userId = ?", id, function (err, rows) {
+        db.query("select * from user where departmentId =? ", id, function (err, rows) {
             if(err) {
                 console.log("error: ", err);
                 reject(err);
             }
             else{
-                console.log("data at model: ", rows);
+                console.log("data at model: ",id, rows);
                 resolve(rows,'success');
             }
         });
@@ -76,7 +73,7 @@ user.addUser = function (newUser) {
         }
         else{
             console.log(res.userId);
-            resolve.json(res.userId,'result');
+            resolve(res.userId,'result');
         }
     });
   });
@@ -87,7 +84,7 @@ user.updateUser = function(id, user){
     return new Promise(function (resolve, reject) {
     db.query("UPDATE user SET firstname=?,lastname=?,userId=?,departmentName=?,departmentId=?,phone=?,email=?" +
         "address=?,dob=?,age=? " +
-        "WHERE userId = ?", [user.firstname,user.lastname,user.userId,user.departmentName,user.departmentId,
+        "WHERE userId=?", [user.firstname,user.lastname,user.userId,user.departmentName,user.departmentId,
             user.phone,user.email,user.address,user.dob,user.age, id],
         function (err, res) {
             if(err) {

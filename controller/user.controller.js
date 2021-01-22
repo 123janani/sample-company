@@ -11,7 +11,7 @@ exports.getAllUsers = function(req, res) {
 };
 
 exports.getUserById = function(req, res) {
-    var id =req.params.id;
+    var id = req.params.id;
     user_model.getUserById(id).then(function(user) {
         res.status(200).send(user);
         console.log('res', user);
@@ -20,10 +20,9 @@ exports.getUserById = function(req, res) {
     })
 };
 
-exports.getDepartmentByUser = function(req, res) {
-    var id =req.params.id;
-    user_model.getDepartmentByUser(id).then(function(result) {
-        console.log(result,'controller');
+exports.getUsersInDepartment = function(req, res) {
+    var id = req.params.depId;
+    user_model.getUsersInDepartment(id).then(function(result) {
         res.status(200).send(result);
     }).catch(err =>{
         console.error("error get department by id: " + err);
