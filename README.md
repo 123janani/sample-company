@@ -6,7 +6,7 @@ GET   /api/v1/user: will give all users
 
 GET   /api/v1/user/<userID>: will give a specific user with userID
 
-GET   /api/v1/user/<userID>/department : will give department details of the user
+GET   /api/v1/user/<userID>/dep : will give department details of the user
 
 POST  /api/v1/user : create a new user
 
