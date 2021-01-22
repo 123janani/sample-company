@@ -23,3 +23,10 @@ DELETE /api/v1/dep/<depID>: delete a department
   
 PUT /api/v1/dep/<depID>: update a department 
 
+Project Build
+
+  $ node index.js
+  
+NPM node modules
+
+  $ npm install
