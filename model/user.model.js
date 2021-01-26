@@ -97,7 +97,7 @@ user.updateUser = function(id, user){
     });
 };
 //delete existing department
-user.deleteUser = function(id, result){
+user.deleteUser = function(id){
     return new Promise(function (resolve, reject) {
     db.query("DELETE FROM user WHERE userId = ?", [id], function (err, res) {
         if(err) {
