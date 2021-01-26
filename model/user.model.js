@@ -17,8 +17,8 @@ var user = function(dbUser){
 
 //get all
 user.getAllUsers = function () {
-    return new Promise(function (resolve, reject) {
-    db.query("Select * from user", function (err, res) {
+    return new Promise( (resolve, reject)=> {
+    db.query("Select * from user",  (err, res) => {
         if(err) {
             console.log("error: ", err);
             reject('error', err);
@@ -32,9 +32,9 @@ user.getAllUsers = function () {
 };
 
 //get by id
-user.getUserById = function (id) {
-    return new Promise(function (resolve, reject) {
-    db.query("Select * from user where userId =? ", id, function (err, res) {
+user.getUserById =  (id) => {
+    return new Promise( (resolve, reject)=> {
+    db.query("Select * from user where userId =? ", id, (err, res)=> {
         if(err) {
             console.log("error: ", err);
             reject(err, 'error');
@@ -47,9 +47,9 @@ user.getUserById = function (id) {
 };
 
 //get by dep by user
-user.getUsersInDepartment = function (id) {
-    return new Promise(function (resolve, reject) {
-        db.query("select * from user where departmentId =? ", id, function (err, rows) {
+user.getUsersInDepartment =  (id) => {
+    return new Promise( (resolve, reject) => {
+        db.query("select * from user where departmentId =? ", id, (err, rows)=> {
             if(err) {
                 console.log("error: ", err);
                 reject(err);
@@ -64,9 +64,9 @@ user.getUsersInDepartment = function (id) {
 
 
 //create new user
-user.addUser = function (newUser) {
-    return new Promise(function (resolve, reject) {
-    db.query("INSERT INTO user set ?", newUser, function (err, res) {
+user.addUser =  (newUser) => {
+    return new Promise( (resolve, reject)=> {
+    db.query("INSERT INTO user set ?", newUser,  (err, res)=> {
         if(err) {
             console.log("error: ", err);
             reject(err, null);
@@ -80,13 +80,13 @@ user.addUser = function (newUser) {
 };
 
 //update department details
-user.updateUser = function(id, user){
-    return new Promise(function (resolve, reject) {
+user.updateUser = (id, user) =>{
+    return new Promise( (resolve, reject)=> {
     db.query("UPDATE user SET firstname=?,lastname=?,userId=?,departmentName=?,departmentId=?,phone=?,email=?" +
         "address=?,dob=?,age=? " +
         "WHERE userId=?", [user.firstname,user.lastname,user.userId,user.departmentName,user.departmentId,
             user.phone,user.email,user.address,user.dob,user.age, id],
-        function (err, res) {
+         (err, res)=> {
             if(err) {
                 console.log("error: ", err);
                 reject(err, 'err');
@@ -97,9 +97,9 @@ user.updateUser = function(id, user){
     });
 };
 //delete existing department
-user.deleteUser = function(id){
-    return new Promise(function (resolve, reject) {
-    db.query("DELETE FROM user WHERE userId = ?", [id], function (err, res) {
+user.deleteUser = (id) => {
+    return new Promise( (resolve, reject) => {
+    db.query("DELETE FROM user WHERE userId = ?", [id], (err, res)=> {
         if(err) {
             console.log("error: ", err);
             reject(err,'error');
