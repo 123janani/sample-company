@@ -2,10 +2,10 @@ const express = require('express')
 const router = express.Router()
 const userController = require('../controller/user.controller');
 
-// Retrieve all departments
+// Retrieve all users
 router.get('/',userController.getAllUsers);
 router.get('/:id',userController.getUserById);
-//get user data by department
+//get user data by user
 router.get('/dep/:depId', userController.getUsersInDepartment);
 
 //add new user
