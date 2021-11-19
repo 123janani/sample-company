@@ -102,7 +102,7 @@ user.deleteUser = (id) => {
     db.query("DELETE FROM user WHERE userId = ?", [id], (err, res)=> {
         if(err) {
             console.log("error: ", err);
-            reject(err,'error--------');
+            reject(err,'error');
         }
         else{
             resolve(res);
