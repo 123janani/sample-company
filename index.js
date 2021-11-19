@@ -1,6 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+var proxy = require('express-http-proxy');
 var app = express();
+
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
+app.use('/', proxy('https://localhost:8080'));
 
 //Configuring express server
 app.use(bodyParser.json());
