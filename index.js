@@ -4,7 +4,7 @@ var proxy = require('express-http-proxy');
 
 var app = express();
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+//process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 app.use('/', proxy('https://localhost:8080'));
 
