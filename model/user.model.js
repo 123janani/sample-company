@@ -101,7 +101,7 @@ user.deleteUser = (id) => {
     return new Promise( (resolve, reject) => {
     db.query("DELETE FROM user WHERE userId = ?", [id], (err, res)=> {
         if(err) {
-            console.log("errorr: ", err);
+            console.log("errorrrr: ", err);
             reject(err);
         }
         else{
