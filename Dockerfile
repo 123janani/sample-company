@@ -1,4 +1,4 @@
-FROM node:12-alpine
-WORKDIR /app
-COPY . .
-CMD [ "node", "index.js" ]
+# FROM node:12-alpine
+# WORKDIR /app
+# COPY . .
+# CMD [ "node", "index.js" ]
