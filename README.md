@@ -4,7 +4,7 @@ API End Points
 
 User
 
-`GET`   /api/v1/user - will give all users 
+`GET`   /api/v1/user - will give all user's data 
 
 `GET`   /api/v1/user/:userID - will give a specific user with userID
 
